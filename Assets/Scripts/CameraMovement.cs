@@ -10,9 +10,13 @@ public class CameraMovement : MonoBehaviour
     public float heightLimitmax;
     public float heightLimitmin;
     public float scrollSpeed;
+    float x;
+    float y;
+    float rotationSpeed = 100f;
 
     void Update() {
         Vector3 position = transform.position;
+        Quaternion rotation =  Quaternion.Euler(50,0,transform.rotation.z  * Time.deltaTime);
 
         if(Input.GetKey(KeyCode.W) || Input.mousePosition.y >= Screen.height - borThickness)
         {
@@ -29,6 +33,11 @@ public class CameraMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.A) || Input.mousePosition.x <=  borThickness)
         {
            position.x -= camSpeed * Time.deltaTime;
+        }
+
+         if(Input.GetKey(KeyCode.Q))
+        {
+           transform.rotation = rotation;
         }
 
         position.x = Mathf.Clamp(position.x, -borLimit.x, borLimit.x);
