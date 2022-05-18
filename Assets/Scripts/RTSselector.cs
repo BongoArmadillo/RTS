@@ -6,6 +6,7 @@ public class RTSselector : MonoBehaviour
 {
     public List<GameObject> unitList = new List<GameObject>();
     public List<GameObject> unitSelected = new List<GameObject>();
+    public List<GameObject> enemyUnits = new List<GameObject>();
 
     private static RTSselector _instance;
     public static RTSselector instance {get {return _instance;}}
@@ -21,26 +22,6 @@ public class RTSselector : MonoBehaviour
         }
     }
 
-    public void clickSelect(GameObject unitToAdd){
-        deselectALL();
-        unitSelected.Add(unitToAdd);
-        unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
-        unitToAdd.GetComponent<AI>().enabled = true;
-    }
-
-    public void shiftclickSelect(GameObject unitToAdd){
-        if(!unitSelected.Contains(unitToAdd)){
-            unitSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
-            unitToAdd.GetComponent<AI>().enabled = false;
-        }
-        else{
-            unitSelected.Remove(unitToAdd);
-            unitToAdd.transform.GetChild(0).gameObject.SetActive(false);
-            unitToAdd.GetComponent<AI>().enabled = false;
-        }
-    }
-
     public void dragSelect(GameObject unitToAdd){
         if(!unitSelected.Contains(unitToAdd)){
             unitSelected.Add(unitToAdd);
@@ -49,6 +30,7 @@ public class RTSselector : MonoBehaviour
         }
     }
 
+//public void enemySelect
     public void deselectALL()
     {
         foreach (var unit in unitSelected)

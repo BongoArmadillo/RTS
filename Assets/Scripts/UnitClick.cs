@@ -15,41 +15,18 @@ public class UnitClick : MonoBehaviour
 
     private void Update() {
         if(Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
-
-            if(Physics.Raycast(ray, out hit, Mathf.Infinity, unit))
-            {
-
-                if(Input.GetKey(KeyCode.LeftShift))
-                {
-                    RTSselector.instance.shiftclickSelect(hit.collider.gameObject);
-                }
-                else
-                {
-                    RTSselector.instance.clickSelect(hit.collider.gameObject);
-                }
-
-            }
-            else
-            {
-                if(!Input.GetKeyDown(KeyCode.LeftShift))
-                {
-                    RTSselector.instance.deselectALL();
-                }
-            }
+        {    
+        RTSselector.instance.deselectALL();             
         }
    
    
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButton(1) && RTSselector.instance.unitSelected.Count >= 1)
         {
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
                 groundMarker.transform.position = hit.point;
-                groundMarker.SetActive(false);
                 groundMarker.SetActive(true);
             }
         }

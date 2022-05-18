@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private LayerMask enemy = 10;
+    private LayerMask units = 6;
     void Start()
     {
-        RTSselector.instance.unitList.Add(this.gameObject);
+        if(gameObject.layer == units){
+             RTSselector.instance.unitList.Add(this.gameObject);
+        }
+        if(gameObject.layer == enemy){
+            RTSselector.instance.enemyUnits.Add(this.gameObject);
+        }
     }
 
     private void OnDestroy() {
-    RTSselector.instance.unitList.Remove(this.gameObject);
+   if(gameObject.layer == units){
+             RTSselector.instance.unitList.Remove(this.gameObject);
+        }
+    if(gameObject.layer == enemy)
+        {
+            RTSselector.instance.enemyUnits.Remove(this.gameObject);
+        }
     }
 }
