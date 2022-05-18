@@ -1,0 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RTSselector : MonoBehaviour
+{
+    public List<GameObject> unitList = new List<GameObject>();
+    public List<GameObject> unitSelected = new List<GameObject>();
+
+    private static RTSselector _instance;
+    public static RTSselector instance {get {return _instance;}}
+
+    private void Awake() {
+        if(_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
+    public void clickSelect(GameObject unitToAdd){
+        deselectALL();
+        unitSelected.Add(unitToAdd);
+        unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+        unitToAdd.GetComponent<AI>().enabled = true;
+    }
+
+    public void shiftclickSelect(GameObject unitToAdd){
+        if(!unitSelected.Contains(unitToAdd)){
+            unitSelected.Add(unitToAdd);
+            unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+            unitToAdd.GetComponent<AI>().enabled = false;
+        }
+        else{
+            unitSelected.Remove(unitToAdd);
+            unitToAdd.transform.GetChild(0).gameObject.SetActive(false);
+            unitToAdd.GetComponent<AI>().enabled = false;
+        }
+    }
+
+    public void dragSelect(GameObject unitToAdd){
+        if(!unitSelected.Contains(unitToAdd)){
+            unitSelected.Add(unitToAdd);
+            unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+            unitToAdd.GetComponent<AI>().enabled = true;
+        }
+    }
+
+    public void deselectALL()
+    {
+        foreach (var unit in unitSelected)
+        {
+            unit.transform.GetChild(0).gameObject.SetActive(false);
+            unit.GetComponent<AI>().enabled = false;
+        }
+        unitSelected.Clear();
+    }
+
+    public void deselect(GameObject unitToDeselect){
+
+    }
+}
