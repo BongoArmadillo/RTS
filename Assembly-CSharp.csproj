@@ -36,17 +36,21 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\RTSselector.cs" />
      <Compile Include="Assets\SampleSceneAssets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\UnitClick.cs" />
      <Compile Include="Assets\SampleSceneAssets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\RTScontroller.cs" />
+     <Compile Include="Assets\Scripts\UnitDrag.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\SampleSceneAssets\TutorialInfo\Scripts\Readme.cs" />
-     <Compile Include="Assets\SampleSceneAssets\Scripts\LookWithMouse.cs" />
-     <Compile Include="Assets\Scripts\RTSselector.cs" />
-     <Compile Include="Assets\Scripts\Unit.cs" />
-     <Compile Include="Assets\Scripts\UnitClick.cs" />
-     <Compile Include="Assets\Scripts\UnitDrag.cs" />
      <Compile Include="Assets\Scripts\AI.cs" />
+     <Compile Include="Assets\SampleSceneAssets\Scripts\LookWithMouse.cs" />
+     <Compile Include="Assets\Scripts\Unit.cs" />
+     <Compile Include="Assets\Scripts\UnitHP.cs" />
+     <Compile Include="Assets\Scripts\UnitKnockback.cs" />
+     <Compile Include="Assets\Scripts\EnemyGameObj.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI.cs" />
      <None Include="Assets\NavMeshComponents-master\ProjectSettings\ProjectVersion.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
