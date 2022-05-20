@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyObj
   m_EditorClassIdentifier: 
   maxHealth: 100
-  st: 10
+  st: 5

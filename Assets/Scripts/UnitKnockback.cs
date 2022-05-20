@@ -14,10 +14,19 @@ private void Start() {
     knockbackStr = obj.st;
 }
 
+// private void OnCollisionEnter(Collision other) {
+//      if(other.gameObject.tag != targetLayer)
+//             return;
+//            Vector3 direction = transform.position - other.transform.position;
+//             rb.AddForce(direction.normalized * knockbackStr, ForceMode.Impulse);
+//             rb.isKinematic = false;
+//             Invoke("isKinematicOn",0.5f);
+// }
+
      void OnTriggerEnter(Collider other) {
          if(other.gameObject.tag != targetLayer)
             return;
-           Vector3 direction = transform.position - other.transform.position;
+            Vector3 direction = transform.position - other.transform.position;
             rb.AddForce(direction.normalized * knockbackStr, ForceMode.Impulse);
             rb.isKinematic = false;
             Invoke("isKinematicOn",0.5f);

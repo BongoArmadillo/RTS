@@ -6,11 +6,9 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     NavMeshAgent agent;
-    public LayerMask ground;
-    LayerMask enemy = 10;
     public GameObject Target;
     public float maxDistance;
-    bool isAttacking = false;
+    
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
        
@@ -20,7 +18,7 @@ private void Update() {
         if(!agent.pathPending)
             move();
 
-      if(Vector3.Distance(transform.position, Target.transform.position) < maxDistance){
+      if(Vector3.Distance(transform.position, Target.transform.position) < maxDistance && !agent.pathPending){
                attack();
            }
     
@@ -28,10 +26,10 @@ private void Update() {
 }
 
 void move(){
-    int Randx = Random.Range(-10, 10);
-    int Randy = Random.Range(-10, 10);
+    int Randx = Random.Range(-100, 100);
+    int Randy = Random.Range(-100, 100);
 
-    Vector3 destination = new Vector3(Randx,0,Randy);
+    Vector3 destination = new Vector3(Randx + transform.position.x ,2f,Randy + transform.position.z);
         
             agent.SetDestination(destination);
     
@@ -45,7 +43,7 @@ public GameObject FindClosestEnemy()
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closest = null;
-        float distance = Mathf.Infinity;
+        float distance = 10f;
         Vector3 position = transform.position;
         foreach (GameObject go in gos)
         {
