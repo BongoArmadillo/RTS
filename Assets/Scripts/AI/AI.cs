@@ -7,10 +7,10 @@ public class AI : MonoBehaviour
 {
     Camera mainCam;
     NavMeshAgent agent;
-    public LayerMask ground;
-    LayerMask enemy = 10;
-    public GameObject Target;
-    public float maxDistance;
+    [SerializeField] LayerMask ground;
+    [SerializeField] LayerMask enemy;
+    [SerializeField] GameObject Target;
+    [SerializeField] float maxDistance;
     bool isAttacking = false;
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
@@ -19,17 +19,20 @@ public class AI : MonoBehaviour
     }
 private void Update() {
     Target = FindClosestEnemy();
+    
     move();
-    if(isAttacking == true){
-        if(Vector3.Distance(transform.position, Target.transform.position) < maxDistance){
-               attack();
-           }
+
+    callToAttack();
+    Debug.Log(isAttacking);
+
+    if(Vector3.Distance(transform.position, Target.transform.position) < maxDistance && isAttacking == true){
+        attack();
     }
     
 }
 
 void move(){
-    if(Input.GetMouseButton(1))
+    if(Input.GetMouseButtonDown(1))
     {
         RaycastHit hit;
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -61,18 +64,18 @@ agent.SetDestination(Target.transform.position);
 }
 public GameObject FindClosestEnemy()
     {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Enemyv2");
+        GameObject[] Enemy;
+        Enemy = GameObject.FindGameObjectsWithTag("Enemyv2");
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
-        foreach (GameObject go in gos)
+        foreach (GameObject EnemyTarget in Enemy)
         {
-            Vector3 diff = go.transform.position - position;
+            Vector3 diff = EnemyTarget.transform.position - position;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
             {
-                closest = go;
+                closest = EnemyTarget;
                 distance = curDistance;
             }
         }

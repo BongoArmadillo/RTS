@@ -44,6 +44,9 @@ public class UnitHP : MonoBehaviour
         if (healthAmount <= 0)
         {
             Destroy(gameObject);
+            RTSselector.instance.deselect(this.gameObject);
+            RTSselector.instance.unitSelected.Remove(this.gameObject);
+            
         }
 
     }

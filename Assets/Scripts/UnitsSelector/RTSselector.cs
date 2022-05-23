@@ -31,7 +31,6 @@ public class RTSselector : MonoBehaviour
         }
     }
 
-//public void enemySelect
     public void deselectALL()
     {
         foreach (var unit in unitSelected)
@@ -43,6 +42,7 @@ public class RTSselector : MonoBehaviour
     }
 
     public void deselect(GameObject unitToDeselect){
-
+            unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
+            unitToDeselect.GetComponent<AI>().enabled = false;
     }
 }

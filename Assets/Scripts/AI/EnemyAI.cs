@@ -8,53 +8,65 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent agent;
     public GameObject Target;
     public float maxDistance;
-    
-    private void Start() {
+
+    private void Start()
+    {
         agent = GetComponent<NavMeshAgent>();
-       
+
     }
-private void Update() {
-    Target = FindClosestEnemy();
-        if(!agent.pathPending)
+    private void Update()
+    {
+
+        if (!agent.pathPending)
             move();
 
-      if(Vector3.Distance(transform.position, Target.transform.position) < maxDistance){
-               attack();
-           }
-    
-    
-}
+        if(FindClosestEnemy(out Target)){
 
-void move(){
-    int Randx = Random.Range(-100, 100);
-    int Randy = Random.Range(-100, 100);
+        if (Vector3.Distance(transform.position, Target.transform.position) < maxDistance)
+        {
+            attack();
+        }
 
-    Vector3 destination = new Vector3(Randx + transform.position.x ,1f,Randy + transform.position.z);
-        
-            agent.SetDestination(destination);
-    
-}
-void attack(){
-agent.SetDestination(Target.transform.position);
-}
+        }
 
-public GameObject FindClosestEnemy()
+
+    }
+
+    void move()
     {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject closest = null;
+        int Randx = Random.Range(-100, 100);
+        int Randy = Random.Range(-100, 100);
+
+        Vector3 destination = new Vector3(Randx + transform.position.x, 1f, Randy + transform.position.z);
+
+        agent.SetDestination(destination);
+
+    }
+    void attack()
+    {
+        agent.SetDestination(Target.transform.position);
+    }
+
+    public bool FindClosestEnemy(out GameObject closest)
+    {
+        GameObject[] enemy;
+        enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        closest = null;
         float distance = 120f;
         Vector3 position = transform.position;
-        foreach (GameObject go in gos)
+        foreach (GameObject enemyTarget in enemy)
         {
-            Vector3 diff = go.transform.position - position;
+            Vector3 diff = enemyTarget.transform.position - position;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
             {
-                closest = go;
+                closest = enemyTarget;
                 distance = curDistance;
             }
         }
-        return closest;
+        if (closest == null)
+            return false;
+        
+        return true;
     }
 }
