@@ -46,13 +46,14 @@
      <Compile Include="Assets\Scripts\Units\UnitDrag.cs" />
      <Compile Include="Assets\Scripts\Units\UnitKnockback.cs" />
      <Compile Include="Assets\Scripts\Spawner\Spawner.cs" />
+     <Compile Include="Assets\Scripts\Spawner\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
      <Compile Include="Assets\SampleSceneAssets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\AI\AI.cs" />
      <Compile Include="Assets\SampleSceneAssets\Scripts\LookWithMouse.cs" />
      <Compile Include="Assets\Scripts\Spawner\SpawnerButton.cs" />
      <Compile Include="Assets\Scripts\Units\Unit.cs" />
-     <Compile Include="Assets\Scripts\Spawner\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\Spawner\SpawnerTimer.cs" />
      <None Include="Assets\NavMeshComponents-master\ProjectSettings\ProjectVersion.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
