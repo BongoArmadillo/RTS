@@ -42,7 +42,10 @@ public class RTSselector : MonoBehaviour
     }
 
     public void deselect(GameObject unitToDeselect){
+        if(unitList.Contains(unitToDeselect))
+        {
             unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
             unitToDeselect.GetComponent<AI>().enabled = false;
+        }
     }
 }

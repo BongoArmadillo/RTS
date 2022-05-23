@@ -6,4 +6,6 @@ public class EnemyGameObj : ScriptableObject
 {
   public float maxHealth;
   public float st;
+  public float minDmg;
+  public float maxDmg;
 }

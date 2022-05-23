@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 public class UnitHP : MonoBehaviour
 {
     float healthAmount;
-    int damage;
+    float damage;
+    float minDmg;
+    float maxDmg;
     [SerializeField] EnemyGameObj enemyObj;
     [SerializeField] string enemyTag;
     float cooldown;
@@ -15,10 +17,12 @@ public class UnitHP : MonoBehaviour
     private void Start()
     {
         healthAmount = enemyObj.maxHealth;
+        minDmg = enemyObj.minDmg;
+        maxDmg = enemyObj.maxDmg;
     }
     private void Update()
     {
-        damage = Random.Range(10, 20);
+        damage = Random.Range(minDmg, maxDmg);
         DestroyObject();
     }
 

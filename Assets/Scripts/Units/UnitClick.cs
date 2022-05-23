@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class UnitClick : MonoBehaviour
 {
     private Camera mainCam;
-    public GameObject groundMarker;
-    public LayerMask unit;
-    public LayerMask ground;
+    [SerializeField] GameObject groundMarker;
+    [SerializeField] LayerMask unit;
+    [SerializeField] LayerMask ground;
 
     private void Start() {
         mainCam = Camera.main;
     }
 
-    private void Update() {
+    private async void Update() {
         if(Input.GetMouseButtonDown(0))
         {    
         RTSselector.instance.deselectALL();             
@@ -27,8 +28,14 @@ public class UnitClick : MonoBehaviour
             if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
                 groundMarker.transform.position = hit.point;
-                groundMarker.SetActive(true);
+                await groundMarkerTimer();
             }
         }
+    }
+
+    async Task groundMarkerTimer(){
+        groundMarker.SetActive(true);
+        await Task.Delay(2000);
+        groundMarker.SetActive(false);
     }
 }
