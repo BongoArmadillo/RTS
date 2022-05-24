@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] LayerMask spawnLayer;
     [SerializeField] GameObject button;
+    [SerializeField] GameObject panel;
     Camera mainCam;
 
         void Start() {
@@ -24,6 +25,7 @@ public class Spawner : MonoBehaviour
             if(Physics.Raycast(ray, out hit, Mathf.Infinity, spawnLayer))
             {
                 button.SetActive(true);
+                panel.SetActive(true);
             }
         }
  

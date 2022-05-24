@@ -6,34 +6,66 @@ using UnityEngine.UI;
 
 public class SpawnerButton : MonoBehaviour
 {
-    [SerializeField] GameObject units;
+    [SerializeField] GameObject WarriorUnit;
+    [SerializeField] GameObject MinerUnit;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Transform targetPosition;
-    [SerializeField] Text cooldownText;
-    GameObject unitsClone;
-    float spawnerCooldown;
-    float cooldownTimer;
+    [SerializeField] Text cooldownMinerText;
+    [SerializeField] Text cooldownWarriorText;
+    GameObject warriorClone;
+    GameObject MinerClone;
+    float spawnerMinerCooldown;
+    float spawnerWarriorCooldown;
+    float cooldownMinerTimer;
+    float cooldownWarriorTimer;
     [SerializeField] float cooldownTime;
     NavMeshAgent agent;
 
-    public void Update() {
-        if(cooldownTimer >= 0){
-        cooldownTimer -= Time.deltaTime;
-        cooldownText.text = Mathf.RoundToInt(cooldownTimer).ToString();
+    private void Update() {
+        WarriorTimer();
+        MinerTimer();
+        
+    }
+
+public void WarriorTimer() {
+        if(cooldownWarriorTimer >= 0){
+        cooldownWarriorTimer -= Time.deltaTime;
+        cooldownWarriorText.text = Mathf.RoundToInt(cooldownWarriorTimer).ToString();
         }
         else{
-            cooldownText.text = "Create";
+            cooldownWarriorText.text = "Create";
         }
     }
 
-    public void spawnerButtonClick(){
+    public void MinerTimer() {
+        if(cooldownMinerTimer >= 0){
+        cooldownMinerTimer -= Time.deltaTime;
+        cooldownMinerText.text = Mathf.RoundToInt(cooldownMinerTimer).ToString();
+        }
+        else{
+            cooldownMinerText.text = "Create";
+        }
+    }
+
+    public void spawnerWarriorButtonClick(){
         
-        if(Time.time > spawnerCooldown){
-        unitsClone = Instantiate(units,spawnPoint.position,Quaternion.identity);
-        spawnerCooldown = Time.time + cooldownTime;
-        agent = unitsClone.GetComponent<NavMeshAgent>();
+        if(Time.time > spawnerWarriorCooldown){
+        warriorClone = Instantiate(WarriorUnit,spawnPoint.position,Quaternion.identity);
+        spawnerWarriorCooldown = Time.time + cooldownTime;
+        agent = warriorClone.GetComponent<NavMeshAgent>();
         agent.SetDestination(targetPosition.position);
-        cooldownTimer = cooldownTime;
+        cooldownWarriorTimer = cooldownTime;
+        }
+    }
+
+    public void spawnerMinerButtonClick(){
+        
+        if(Time.time > spawnerMinerCooldown){
+        MinerClone = Instantiate(MinerUnit,spawnPoint.position,Quaternion.identity);
+        spawnerMinerCooldown = Time.time + cooldownTime;
+        agent = MinerClone.GetComponent<NavMeshAgent>();
+        agent.SetDestination(targetPosition.position);
+        cooldownMinerTimer = cooldownTime;
         }
     }
 }
