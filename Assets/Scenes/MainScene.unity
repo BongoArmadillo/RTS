@@ -1177,6 +1177,7 @@ MonoBehaviour:
   cooldownMinerText: {fileID: 287224967}
   cooldownWarriorText: {fileID: 2131810102}
   cooldownTime: 8
+  crScript: {fileID: 1491299803}
 --- !u!1 &1290946139
 GameObject:
   m_ObjectHideFlags: 0
