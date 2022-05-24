@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemyv2
   - Enemy
+  - Mine
+  - Spawner
   layers:
   - Default
   - TransparentFX

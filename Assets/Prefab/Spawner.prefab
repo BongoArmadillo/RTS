@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 8631166273963465577}
   - component: {fileID: 8631166273963465578}
   - component: {fileID: 8631166273963465590}
+  - component: {fileID: 1491299803}
   m_Layer: 11
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +124,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8631166273963465579}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -144,7 +145,22 @@ MonoBehaviour:
   spawnLayer:
     serializedVersion: 2
     m_Bits: 2048
-  button: {fileID: 0}
+  button: {fileID: 4171763160315652146, guid: ba139176435983c48b974a098e795e37, type: 3}
+--- !u!114 &1491299803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631166273963465579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d68b212272b74646b9e8f7d39775f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitResourcesCount: 0
+  unitResourcesText: {fileID: 1641055420362831286, guid: 2928e30adc17f914992c0f61db64ed9f, type: 3}
+  minerTag: Enemy
 --- !u!1 &8631166274813969036
 GameObject:
   m_ObjectHideFlags: 0

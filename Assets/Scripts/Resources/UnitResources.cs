@@ -7,22 +7,30 @@ using UnityEngine.AI;
 
 public class UnitResources : MonoBehaviour
 {
-   [SerializeField] TMP_Text unitResourcesCountText;
    [SerializeField] string mineTag;
    [SerializeField] string castleTag;
-   int unitResourcesCount = 0;
    NavMeshAgent agent;
-   [SerializeField] Transform castlePosition;
-   [SerializeField] Transform minePosition;
+   Transform castlePosition;
+   Transform minePosition;
+   public bool isMined = false;
+   CastleResources crScript;
+
+   private void Start() {
+       agent = GetComponent<NavMeshAgent>();
+       castlePosition = GameObject.FindGameObjectWithTag("Spawner").GetComponent<Transform>();
+       minePosition = GameObject.FindGameObjectWithTag("Mine").GetComponent<Transform>();
+       crScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<CastleResources>();
+   }
    private void OnTriggerEnter(Collider other) {
        if(other.tag == mineTag){
-       unitResourcesCount += 1;
        agent.SetDestination(castlePosition.position);
+       isMined = true;
        }
 
-       if(other.tag == castleTag){
-            unitResourcesCountText.text = unitResourcesCount.ToString();
-            agent.SetDestination(minePosition.position);         
+       if(other.tag == castleTag && isMined == true){
+            crScript.UpdateText();
+            agent.SetDestination(minePosition.position);  
+            isMined = false;       
        }
    }
    
