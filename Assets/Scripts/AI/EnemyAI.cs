@@ -21,12 +21,7 @@ public class EnemyAI : MonoBehaviour
             move();
 
         if(FindClosestEnemy(out Target)){
-
-        if (Vector3.Distance(transform.position, Target.transform.position) < maxDistance)
-        {
             attack();
-        }
-
         }
 
 

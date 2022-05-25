@@ -10,7 +10,6 @@ public class AI : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] LayerMask enemy;
     [SerializeField] GameObject Target;
-    [SerializeField] float maxDistance;
     bool isAttacking = false;
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
@@ -18,14 +17,13 @@ public class AI : MonoBehaviour
         //GetComponent<AI>().enabled = false;
     }
 private void Update() {
-    Target = FindClosestEnemy();
     
     move();
 
     callToAttack();
     Debug.Log(isAttacking);
 
-    if(Vector3.Distance(transform.position, Target.transform.position) < maxDistance && isAttacking == true){
+    if(FindClosestEnemy(out Target) && isAttacking == true){
         attack();
     }
     
@@ -67,23 +65,26 @@ agent.SetDestination(Target.transform.position);
 }
 
 
-public GameObject FindClosestEnemy()
+public bool FindClosestEnemy(out GameObject closest)
     {
-        GameObject[] Enemy;
-        Enemy = GameObject.FindGameObjectsWithTag("Enemyv2");
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
+        GameObject[] enemy;
+        enemy = GameObject.FindGameObjectsWithTag("Enemyv2");
+        closest = null;
+        float distance = 120f;
         Vector3 position = transform.position;
-        foreach (GameObject EnemyTarget in Enemy)
+        foreach (GameObject enemyTarget in enemy)
         {
-            Vector3 diff = EnemyTarget.transform.position - position;
+            Vector3 diff = enemyTarget.transform.position - position;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
             {
-                closest = EnemyTarget;
+                closest = enemyTarget;
                 distance = curDistance;
             }
         }
-        return closest;
+        if (closest == null)
+            return false;
+        
+        return true;
     }
 }
