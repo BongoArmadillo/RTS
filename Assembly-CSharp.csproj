@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\AI\AI.cs" />
      <Compile Include="Assets\SampleSceneAssets\Scripts\LookWithMouse.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+     <Compile Include="Assets\Scripts\Resources\CastleResources.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
@@ -88,7 +89,9 @@
      <Compile Include="Assets\Scripts\Units\Unit.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Scripts\Resources\CastleResources.cs" />
+     <Compile Include="Assets\Scripts\CastleBuilding\CastleBuildingStructures.cs" />
+     <Compile Include="Assets\Scripts\CastleBuilding\CastleBuildingBlueprint.cs" />
+     <Compile Include="Assets\Scripts\AI\AI move.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

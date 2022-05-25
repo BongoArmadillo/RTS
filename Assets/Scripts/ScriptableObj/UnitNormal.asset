@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   st: 5
-  minDmg: 10
-  maxDmg: 15
+  minUnitDmg: 15
+  maxUnitDmg: 20

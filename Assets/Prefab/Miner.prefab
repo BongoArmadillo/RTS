@@ -114,7 +114,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
-  m_Acceleration: 8
+  m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -215,10 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mineTag: Mine
   castleTag: Spawner
-  castlePosition: {fileID: 8631166273963465591, guid: 2f8efa31036911e4585d1b35c8f962b7, type: 3}
-  minePosition: {fileID: 4238062754093928077, guid: d6f0654c02b72a14a95c54c957e7084b, type: 3}
   isMined: 0
-  crScript: {fileID: 1491299803, guid: 2f8efa31036911e4585d1b35c8f962b7, type: 3}
 --- !u!1 &5488004963278074591
 GameObject:
   m_ObjectHideFlags: 0

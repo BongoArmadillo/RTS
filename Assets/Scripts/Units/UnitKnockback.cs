@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitKnockback : MonoBehaviour
 {
-   float knockbackStr;
+   public float knockbackStr;
    [SerializeField] EnemyGameObj obj;
    [SerializeField] string targetLayer;
    Rigidbody rb;

@@ -7,8 +7,10 @@ public class UnitHP : MonoBehaviour
 {
     float healthAmount;
     float damage;
-    float minDmg;
-    float maxDmg;
+    public int minUnitDmg;
+    public int maxUnitDmg;
+    int enemyMinDmg = 0;
+    int enemyMaxDmg = 0;
     [SerializeField] EnemyGameObj enemyObj;
     [SerializeField] string enemyTag;
     float cooldown;
@@ -17,20 +19,26 @@ public class UnitHP : MonoBehaviour
     private void Start()
     {
         healthAmount = enemyObj.maxHealth;
-        minDmg = enemyObj.minDmg;
-        maxDmg = enemyObj.maxDmg;
+        minUnitDmg = enemyObj.minUnitDmg;
+        maxUnitDmg = enemyObj.maxUnitDmg;
     }
     private void Update()
     {
-        damage = Random.Range(minDmg, maxDmg);
+        damage = Random.Range(enemyMinDmg, enemyMaxDmg);
         DestroyObject();
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemyv2"){
+        enemyMinDmg = other.GetComponent<UnitHP>().minUnitDmg;
+        enemyMaxDmg = other.GetComponent<UnitHP>().maxUnitDmg;
+        }
     }
 
 
        void OnTriggerExit(Collider other){
            if(other.gameObject.tag == enemyTag && Time.time > cooldown)
             {
-               
                 takeDamage();
                 Debug.Log(healthAmount);
                 cooldown = Time.time + attack;
