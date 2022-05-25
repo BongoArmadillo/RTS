@@ -27,7 +27,7 @@ public class RTSselector : MonoBehaviour
         if(!unitSelected.Contains(unitToAdd) && unitToAdd.tag == tag){
             unitSelected.Add(unitToAdd);
             unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
-            unitToAdd.GetComponent<AI>().enabled = true;
+            //unitToAdd.GetComponent<AI>().enabled = true;
         }
     }
 
@@ -36,7 +36,7 @@ public class RTSselector : MonoBehaviour
         foreach (var unit in unitSelected)
         {
             unit.transform.GetChild(0).gameObject.SetActive(false);
-            unit.GetComponent<AI>().enabled = false;
+            //unit.GetComponent<AI>().enabled = false;
         }
         unitSelected.Clear();
     }
@@ -45,7 +45,7 @@ public class RTSselector : MonoBehaviour
         if(unitList.Contains(unitToDeselect))
         {
             unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
-            unitToDeselect.GetComponent<AI>().enabled = false;
+            //unitToDeselect.GetComponent<AI>().enabled = false;
         }
     }
 }

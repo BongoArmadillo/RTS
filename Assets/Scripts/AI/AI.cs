@@ -15,7 +15,7 @@ public class AI : MonoBehaviour
     private void Start() {
         agent = GetComponent<NavMeshAgent>();
         mainCam = Camera.main;
-        GetComponent<AI>().enabled = false;
+        //GetComponent<AI>().enabled = false;
     }
 private void Update() {
     Target = FindClosestEnemy();
@@ -32,7 +32,7 @@ private void Update() {
 }
 
 void move(){
-    if(Input.GetMouseButtonDown(1))
+    if(Input.GetMouseButtonDown(1) && RTSselector.instance.unitSelected.Contains(gameObject))
     {
         RaycastHit hit;
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -46,7 +46,7 @@ void move(){
 }
 
 void callToAttack(){
-    if(Input.GetMouseButtonDown(1))
+    if(Input.GetMouseButtonDown(1) && RTSselector.instance.unitSelected.Contains(gameObject))
     {
         RaycastHit hit;
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -59,9 +59,14 @@ void callToAttack(){
     }
 
 }
+
+
+
 void attack(){
 agent.SetDestination(Target.transform.position);
 }
+
+
 public GameObject FindClosestEnemy()
     {
         GameObject[] Enemy;
