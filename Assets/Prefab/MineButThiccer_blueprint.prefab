@@ -112,3 +112,4 @@ MonoBehaviour:
   mineBuilding: {fileID: 8300638899270339924, guid: aba4c54623849084db960d38f3dcac1e, type: 3}
   validBuildingPlaceMaterial: {fileID: 2100000, guid: 48d4ac4836504cc4088129617757ae13, type: 2}
   unvalidBuildingPlaceMaterial: {fileID: 2100000, guid: ac5e567c2cef30e4097967d1c5a0e52b, type: 2}
+  buildingPlace: {fileID: 6552881888316520344, guid: a9f5c92dd6cdbd341a5fa793e6d8ee99, type: 3}

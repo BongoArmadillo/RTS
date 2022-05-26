@@ -21,7 +21,6 @@ private void Update() {
     move();
 
     callToAttack();
-    Debug.Log(isAttacking);
 
     if(FindClosestEnemy(out Target) && isAttacking == true){
         attack();

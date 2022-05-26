@@ -10,6 +10,7 @@ TagManager:
   - Spawner
   - Blueprint
   - Ground
+  - BuildingPlace
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Spawner
   - Mine
   - Blueprint
-  - 
-  - 
+  - BuildingPlace
+  - Castle
   - 
   - 
   - 
