@@ -98,7 +98,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5488004962405821541}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -172,7 +172,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   Target: {fileID: 0}
-  maxDistance: 10
 --- !u!114 &5488004962405819294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b95f7b95f807d144bee481212df1993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackStr: 0
   obj: {fileID: 11400000, guid: 71cd0e5291efc524b9443e1e66a88982, type: 2}
   targetLayer: Enemyv2
 --- !u!114 &5488004962405819295
@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc65f4a662f8854c82e8ff2ddc53516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUnitDmg: 0
+  maxUnitDmg: 0
   enemyObj: {fileID: 11400000, guid: 71cd0e5291efc524b9443e1e66a88982, type: 2}
   enemyTag: Enemyv2
 --- !u!114 &4557940874791974607

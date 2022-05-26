@@ -9,6 +9,7 @@ TagManager:
   - Mine
   - Spawner
   - Blueprint
+  - Ground
   layers:
   - Default
   - TransparentFX

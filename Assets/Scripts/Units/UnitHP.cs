@@ -40,7 +40,7 @@ public class UnitHP : MonoBehaviour
            if(other.gameObject.tag == enemyTag && Time.time > cooldown)
             {
                 takeDamage();
-                Debug.Log(healthAmount);
+                //Debug.Log(healthAmount);
                 cooldown = Time.time + attack;
             }
 
